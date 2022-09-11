@@ -15,6 +15,7 @@ spring:
             - Path=/api/flights/**
           filters:
             - StripPrefix=1
+            - AddResponseHeader=X-Response-Colour, Blue
 
 logging:
   level:
