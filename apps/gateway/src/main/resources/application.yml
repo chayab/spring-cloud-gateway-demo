@@ -4,10 +4,15 @@ server:
 spring:
   cloud:
     gateway:
-      httpserver:
-        wiretap: true
-      httpclient:
-        wiretap: true
+      default-filters:
+        - name: Retry
+          args:
+            retries: 3
+            methods: GET
+            backoff:
+              firstBackoff: 10ms
+              maxBackoff: 50ms
+
       routes:
         - id: flights-route
           uri: ${FLIGHTS_SERVICE_URL:http://localhost:9001}
@@ -15,6 +20,10 @@ spring:
             - Path=/api/flights/**
           filters:
             - StripPrefix=1
+      httpserver:
+        wiretap: true
+      httpclient:
+        wiretap: true
 
 logging:
   level:
