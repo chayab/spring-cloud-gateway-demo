@@ -8,7 +8,6 @@
 		<version>${revision}</version>
 	</parent>
 
-	<groupId>com.chaya</groupId>
 	<artifactId>gateway</artifactId>
 	<version>${revision}</version>
 	<name>gateway</name>
@@ -30,8 +29,7 @@
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
+			<artifactId>spring-boot-starter-data-redis-reactive</artifactId>
 		</dependency>
 	</dependencies>
 
