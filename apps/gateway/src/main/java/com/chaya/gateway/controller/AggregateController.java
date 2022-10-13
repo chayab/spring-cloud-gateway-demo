@@ -34,10 +34,8 @@ public class AggregateController {
 
 	@Value("${app.servers.flights}")
 	String flightsUrl;
-
 	@Value("${app.servers.crew}")
 	String crewUrl;
-
 	private final ObjectMapper objectMapper;
 
 

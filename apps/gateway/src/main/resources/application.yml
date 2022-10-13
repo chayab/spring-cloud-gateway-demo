@@ -4,13 +4,7 @@ server:
 spring:
   webflux:
     base-path: /api
-  cloud:
-    gateway:
-      routes:
-        - id: crew-and-flights-route
-          uri: forward:/api/aggregate/flights/details
-          predicates:
-            - Path=/api/flights/details
+
 
 app:
   servers:
