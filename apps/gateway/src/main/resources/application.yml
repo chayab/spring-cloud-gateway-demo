@@ -1,19 +1,21 @@
 server:
   port: 9000
 
-
 spring:
+  webflux:
+    base-path: /api
   cloud:
     gateway:
       routes:
-        - id: flights-route
-          uri: ${FLIGHTS_SERVICE_URL:http://localhost:9001}
+        - id: crew-and-flights-route
+          uri: forward:/api/aggregate/flights/details
           predicates:
-            - Path=/api/flights/**
-          filters:
-          - StripPrefix=1
-          - AddResponseHeader=X-Response-Colour, Blue
+            - Path=/api/flights/details
 
+app:
+  servers:
+    flights: http://localhost:9001/flights
+    crew: http://localhost:9002/crew
 
 logging:
   level:

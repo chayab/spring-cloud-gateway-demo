@@ -8,7 +8,6 @@
 		<version>${revision}</version>
 	</parent>
 
-	<groupId>com.chaya</groupId>
 	<artifactId>gateway</artifactId>
 	<version>${revision}</version>
 	<name>gateway</name>
@@ -26,6 +25,16 @@
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-gateway</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-gateway-webflux</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-autoconfigure</artifactId>
 		</dependency>
 
 		<dependency>
