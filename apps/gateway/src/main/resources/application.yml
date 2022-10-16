@@ -6,20 +6,20 @@ spring:
     base-path: /api
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 app:
   servers:
     flights: http://localhost:9001/flights
     crew: http://localhost:9002/crew
-
-logging:
-  level:
-    reactor:
-      core:
-        publisher: TRACE
-      netty: DEBUG
-    org:
-      springframework:
-        cloud:
-          gateway: TRACE
-        security: TRACE
 
