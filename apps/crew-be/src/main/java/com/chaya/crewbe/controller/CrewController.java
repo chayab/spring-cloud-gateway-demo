@@ -5,19 +5,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
 
-record FlightCrew(String flightName, String crewMember) {}
+record FlightPilot(String flightName, String pilot) {}
 
 @RestController
 @Slf4j
 public class CrewController {
 
 	@GetMapping("crew")
-	public Flux<FlightCrew> getFlightsCrew() {
+	public Flux<FlightPilot> getFlightsCrew() {
 		return Flux.just(
-				new FlightCrew("WZZ5448", "Amelia Earhart"),
-				new FlightCrew("EZ7865", "Orville Wright"),
-				new FlightCrew("ElAL9897", "Henri Giraud"),
-				new FlightCrew("UAE5463", "Maverick")
+				new FlightPilot("WZZ5448", "Amelia Earhart"),
+				new FlightPilot("EZ7865", "Orville Wright"),
+				new FlightPilot("ElAL9897", "Henri Giraud"),
+				new FlightPilot("UAE5463", "Maverick")
 		).doFirst(() -> log.info("Returning list of crew"));
 	}
 }

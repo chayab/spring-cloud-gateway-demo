@@ -51,8 +51,7 @@ public class AggregateController {
 	private Mono<List<FlightWithPilot>> unionResponses(Mono<Tuple2<ResponseEntity<byte[]>, ResponseEntity<byte[]>>> zipMono) {
 		return zipMono.map(result -> {
 			try {
-				List<Flight> flights = objectMapper.readValue(result.getT1().getBody(), new TypeReference<>() {
-				});
+				List<Flight> flights = objectMapper.readValue(result.getT1().getBody(), new TypeReference<>() {});
 				Map<String, FlightCrew> pilotsByFlightName =
 						objectMapper.readValue(result.getT2().getBody(), new TypeReference<List<FlightCrew>>() {
 								})
