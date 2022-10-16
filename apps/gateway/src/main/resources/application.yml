@@ -1,31 +1,6 @@
 server:
   port: 9000
 
-spring:
-  cloud:
-    gateway:
-      httpserver:
-        wiretap: true
-      httpclient:
-        wiretap: true
-      routes:
-        - id: flights-route
-          uri: ${FLIGHTS_SERVICE_URL:http://localhost:9001}
-          predicates:
-            - Path=/api/flights/**
-          filters:
-            - StripPrefix=1
-            - AddResponseHeader=X-Response-Colour, Blue
 
-logging:
-  level:
-    reactor:
-      core:
-        publisher: TRACE
-      netty: DEBUG
-    org:
-      springframework:
-        cloud:
-          gateway: TRACE
-        security: TRACE
+
 
