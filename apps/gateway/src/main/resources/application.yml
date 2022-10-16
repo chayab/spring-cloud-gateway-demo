@@ -1,9 +1,6 @@
 server:
   port: 9000
 
-spring:
-  webflux:
-    base-path: /api
 
 
 
