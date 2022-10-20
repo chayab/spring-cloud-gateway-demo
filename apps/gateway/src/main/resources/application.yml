@@ -7,23 +7,22 @@ spring:
     gateway:
       routes:
         - id: flights-route
-          uri: ${FLIGHTS_SERVICE_URL:http://localhost:9001}
+          uri: http://localhost:9001
           predicates:
             - Path=/api/flights/**
           filters:
           - StripPrefix=1
           - AddResponseHeader=X-Response-Colour, Blue
-
-
-logging:
-  level:
-    reactor:
-      core:
-        publisher: TRACE
-      netty: DEBUG
-    org:
-      springframework:
-        cloud:
-          gateway: TRACE
-        security: TRACE
+          - name: Logging
+            args:
+              logPrefix: "Flights-MS: "
+              logEntry: true
+              logExit: true
+        - id: crew-route
+          uri: http://localhost:9002
+          predicates:
+            - Path=/api/crew/**
+          filters:
+            - StripPrefix=1
+            - AddResponseHeader=X-Response-Colour, Red
 
