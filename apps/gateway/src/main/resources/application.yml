@@ -15,7 +15,7 @@ spring:
           - AddResponseHeader=X-Response-Colour, Blue
           - name: Logging
             args:
-              logPrefix: "Flights-MS: "
+              logPrefix: "Flights-MS"
               logEntry: true
               logExit: true
         - id: crew-route
@@ -25,4 +25,9 @@ spring:
           filters:
             - StripPrefix=1
             - AddResponseHeader=X-Response-Colour, Red
+            - Logging=Crew-MS, true, false
 
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    reactor.netty.http.client: DEBUG

@@ -15,6 +15,7 @@
     <modules>
         <module>gateway</module>
         <module>flights-be</module>
+        <module>crew-be</module>
     </modules>
 
     <dependencies>

@@ -8,7 +8,6 @@
 		<version>${revision}</version>
 	</parent>
 
-	<groupId>com.chaya</groupId>
 	<artifactId>flights-be</artifactId>
 	<version>${revision}</version>
 	<name>flights-be</name>
@@ -16,7 +15,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-webflux</artifactId>
+			<artifactId>spring-boot-starter-web-services</artifactId>
 		</dependency>
 
 		<dependency>

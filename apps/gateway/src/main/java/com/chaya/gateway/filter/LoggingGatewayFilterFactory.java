@@ -9,6 +9,9 @@ import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFac
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
 
+import java.util.Arrays;
+import java.util.List;
+
 @Slf4j
 @Component
 public class LoggingGatewayFilterFactory extends AbstractGatewayFilterFactory<LoggingGatewayFilterFactory.Config> {
@@ -16,10 +19,14 @@ public class LoggingGatewayFilterFactory extends AbstractGatewayFilterFactory<Lo
 	public LoggingGatewayFilterFactory() {
 		super(Config.class);
 	}
-
 	@Override
 	public Config newConfig() {
 		return new Config();
+	}
+
+	@Override
+	public List<String> shortcutFieldOrder() {
+		return Arrays.asList("logPrefix", "logEntry", "logExit");
 	}
 
 	@Override
