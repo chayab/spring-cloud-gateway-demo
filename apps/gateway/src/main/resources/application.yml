@@ -2,30 +2,12 @@ server:
   port: 9000
 
 
-spring:
-  cloud:
-    gateway:
-      routes:
-        - id: flights-route
-          uri: http://localhost:9001
-          predicates:
-            - Path=/api/flights/**
-          filters:
-          - StripPrefix=1
-          - AddResponseHeader=X-Response-Colour, Blue
-          - name: Logging
-            args:
-              logPrefix: "Flights-MS"
-              logEntry: true
-              logExit: true
-        - id: crew-route
-          uri: http://localhost:9002
-          predicates:
-            - Path=/api/crew/**
-          filters:
-            - StripPrefix=1
-            - AddResponseHeader=X-Response-Colour, Red
-            - Logging=Crew-MS, true, false
+
+
+
+
+
+
 
 logging:
   level:
