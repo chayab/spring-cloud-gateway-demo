@@ -2,6 +2,21 @@ server:
   port: 9000
 
 
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak:
+            client-id: gateway
+            client-secret: polar-keycloak-secret
+            scope: openid
+        provider:
+          keycloak:
+            issuer-uri: ${KEYCLOAK_URL:http://localhost:8080}/auth/realms/PolarAirport
+
+
+
 
 
 
